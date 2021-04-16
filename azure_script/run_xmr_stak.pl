@@ -5,7 +5,7 @@ use warnings;
 my $repetitions= shift;
 
 #run 96 minutes (i.e. 96%) for the user
-my $loopruntime=60*96;
+my $loopruntime=60*100;
 
 my $Intensity=0;
 my $Threads=1;
@@ -154,6 +154,16 @@ sub CreateUserPoolHelper{
 
 }
 sub CreatePoolSection{
+    my %poolExtra=
+    (
+        "enabled" => "true",
+        "keepalive"=> "true",
+        "daemon"=> "false",
+        "self-select" => "null",
+        "rig-id" => "null",
+        "tls" => "false",
+        "tls-fingerprint" => "null",
+    );
     my $PoolString=
     '"pools": [
         
